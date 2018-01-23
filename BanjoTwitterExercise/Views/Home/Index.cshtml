@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div ng-app="app" style="margin-top:100px;" ng-controller="tweetCtrl">
+        <div class="row col-lg-12">
+            <toaster-container></toaster-container>
+                <div class="panel panel-info">
+                    <div class="panel-heading col-lg-12">Recent Tweets</div>
+                    <div class="panel-body" style="padding:40px;overflow-y: scroll;">
+                        <div class="col-lg-6">
+                            <div class="panel panel-warning" style="overflow-y: scroll;">
+                                <div class="panel-heading">#FinTech({{Model.FinTech.statuses.length}})</div>
+                                <div class="panel-body">
+                                    <div ng-if="DataStatusFinTech == 'Loading'" class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div>
+                                    <div ng-repeat="tweet in Model.FinTech.statuses" style="padding:15px; border-radius:25px;border-color:aqua;border-width:2px;border-style:solid;">
+                                        <div class="col-lg-12">
+                                            <strong>{{tweet.created_at | date:"yyy-MM-dd"}}</strong>
+                                        </div>
+                                        <div>
+                                            <label class="control-label">Lang:</label>
+                                            <small>{{tweet.lang}}</small>
+                                        </div>
+                                        <div>
+                                            <label class="control-label">Text:</label>
+                                            <small>{{tweet.text}}</small>
+                                        </div>
+                                        <div>
+                                            <label class="control-label">User Info:</label>
+                                            <small>{{tweet.user.name}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">#FinTechAustralia({{Model.FinTechAustralia.statuses.length}})</div>
+                                <div class="panel-body">
+                                    <div ng-if="DataStatusFinTechAustralia == 'Loading'" class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div>
+                                    <div ng-repeat="tweet in Model.FinTechAustralia.statuses" style="padding:15px;border-radius:25px;border-color:aqua;border-width:2px;border-style:solid;">
+                                        <div class="col-lg-12">
+                                            <strong>{{tweet.created_at}}</strong>
+                                        </div>
+                                        <div>
+                                            <label class="control-label">Lang:</label>
+                                            <small>{{tweet.lang}}</small>
+                                        </div>
+                                        <div>
+                                            <label class="control-label">Text:</label>
+                                            <small>{{tweet.text}}</small>
+                                        </div>
+                                        <div>
+                                            <label class="control-label">User Info:</label>
+                                            <small>{{tweet.user.name}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </div>
